@@ -6,14 +6,14 @@ export const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState("top-[20%]");
   const [toggleIcon, setToggleIcon] = useState(false);
   return (
-    <header className="bg-white">
+    <header className="bg-[#f2f2f2e3]">
       <nav className="p-3 flex justify-between items-center w-[92%] mx-auto">
         <div>
-          <img src={image} className="w-16" alt="logo" />
+          <img src={image} className="w-16 rounded-full " alt="logo" />
         </div>
 
         <div
-          className={`md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
+          className={`md:static absolute md:bg-[#f2f2f2e3]  bg-white md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
         >
           <ul className="flex md:flex-row flex-col items-center gap-20">
             <li className="hover:text-gray-500">Product</li>
