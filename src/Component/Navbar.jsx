@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa6";
 import { CgCloseR } from "react-icons/cg";
 export const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState("top-[11%]");
+  const [toggleMenu, setToggleMenu] = useState("top-[100%]");
   const [toggleIcon, setToggleIcon] = useState(false);
 const ToggleFunction =()=>{
   setToggleIcon(!toggleIcon);
               setToggleMenu((oState) => {
-                let st = oState === "top-[11%]" ? "top-[-100%]" : "top-[11%]";
+                let st = oState === "top-[100%]" ? "top-[-1000%]" : "top-[100%]";
                 return st;
               });
               console.log("clicked");
@@ -18,14 +18,14 @@ const ToggleFunction =()=>{
 }
 
   return (
-    <header className="bg-[#f2f2f2e3] ">
+    <header className="bg-[#f2f2f2e3] sticky top-0 z-50 ">
       <nav className="p-3  flex justify-between items-center w-[92%] mx-auto">
         <div className=" ">
           <img src={image} className="w-16 rounded-full " alt="logo" />
         </div>
 
         <div
-          className={`md:static absolute md:bg-[#f2f2f2e3] z-50 transition: all 0.3s ease duration-1000  bg-[#ffffff]  md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
+          className={`md:static absolute md:bg-[#f2f2f2e3]  transition: all 0.3s ease duration-1000  bg-[#ffffff]  md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
         >
           <ul className="flex md:flex-row flex-col justify-around items-center md:w-auto md:min-h-fit md:gap-20 min-h-[60vh]">
             <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36" onClick={()=>ToggleFunction()}><Link to={'/product'} className="no-underline">Product</Link></li>
@@ -43,7 +43,7 @@ const ToggleFunction =()=>{
             onClick={(e) => {
               ToggleFunction();
             }}
-            className="md:hidden text-3xl  cursor-pointer"
+            className="md:hidden animate-fade-in transition: all 0.3s ease duration-1000 text-3xl  cursor-pointer"
           >
             {toggleIcon ? <FaAlignJustify/> : <CgCloseR/>}
           </div>

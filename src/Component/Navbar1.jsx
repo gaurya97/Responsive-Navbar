@@ -20,7 +20,7 @@ export const Navbar1 = () => {
   return (
     <header className="bg-[#f2f2f2e3] sticky top-0 z-50 ">
   <nav className="p-3 flex justify-between items-center w-[92%] mx-auto">
-    <div>
+    <div className="sticky top-0">
       <img src={image} className="w-16 rounded-full" alt="logo" />
     </div>
 
