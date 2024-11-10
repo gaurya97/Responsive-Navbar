@@ -1,10 +1,22 @@
 import React from "react";
 import image from "../Images/image.png";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import { FaAlignJustify } from "react-icons/fa6";
+import { CgCloseR } from "react-icons/cg";
 export const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState("top-[20%]");
+  const [toggleMenu, setToggleMenu] = useState("top-[11%]");
   const [toggleIcon, setToggleIcon] = useState(false);
+const ToggleFunction =()=>{
+  setToggleIcon(!toggleIcon);
+              setToggleMenu((oState) => {
+                let st = oState === "top-[11%]" ? "top-[-100%]" : "top-[11%]";
+                return st;
+              });
+              console.log("clicked");
+
+}
+
   return (
     <header className="bg-[#f2f2f2e3]">
       <nav className="p-3 flex justify-between items-center w-[92%] mx-auto">
@@ -13,14 +25,14 @@ export const Navbar = () => {
         </div>
 
         <div
-          className={`md:static absolute md:bg-[#f2f2f2e3]  bg-white md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
+          className={`md:static absolute md:bg-[#f2f2f2e3] z-10 duration-1000  bg-[#ffffff]  md:min-h-fit min-h-[60vh] left-0 ${toggleMenu} md:w-auto w-full items-center px-5`}
         >
-          <ul className="flex md:flex-row flex-col items-center gap-20">
-            <li className="hover:text-gray-500">Product</li>
-            <li className="hover:text-gray-500">Solution</li>
-            <li className="hover:text-gray-500">Resource</li>
-            <li className="hover:text-gray-500">Developers</li>
-            <li className="hover:text-gray-500">Pricing</li>
+          <ul className="flex md:flex-row flex-col justify-around items-center md:w-auto md:min-h-fit md:gap-20 min-h-[60vh]">
+            <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36" onClick={()=>ToggleFunction()}><Link to={'/product'} className="no-underline">Product</Link></li>
+            <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36" onClick={()=>ToggleFunction()}><Link to={'/solution'} className="no-underline">Solution</Link></li>
+            <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36">Resource</li>
+            <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36">Developers</li>
+            <li className="hover:text-gray-500 md:border-none text-center border border-slate-300 md:w-auto md:block grid place-items-center md:h-auto h-8 rounded-lg w-36">Pricing</li>
           </ul>
         </div>
         <div className="flex items-center gap-6">
@@ -29,16 +41,11 @@ export const Navbar = () => {
           </button>
           <div
             onClick={(e) => {
-              setToggleIcon(!toggleIcon);
-              setToggleMenu((oState) => {
-                let st = oState === "top-[20%]" ? "top-[-100%]" : "top-[20%]";
-                return st;
-              });
-              console.log("clicked");
+              ToggleFunction();
             }}
             className="md:hidden text-3xl cursor-pointer"
           >
-            {toggleIcon ? "Open" : "Close"}
+            {toggleIcon ? <FaAlignJustify/> : <CgCloseR/>}
           </div>
         </div>
       </nav>
