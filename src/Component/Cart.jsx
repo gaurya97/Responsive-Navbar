@@ -1,11 +1,11 @@
 import React from 'react'
-
+import image from "../Images/image.png";
 export const Cart = () => {
   return (
     <div className=''>
  <div classNameName="w-48 my-6 bg-white border border-slate-800 rounded-lg shadow-lg overflow-hidden">
     <div className="relative">
-        <img src="https://via.placeholder.com/400x300" className="w-60 h-48 object-cover" alt="Food Image" />
+        <img src={image} className="w-60 h-48 object-cover" alt="Food Image" />
         <div className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded-full">4.5 ⭐</div>
     </div>
 

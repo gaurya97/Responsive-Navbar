@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaAlignJustify } from "react-icons/fa6";
 import { CgCloseR } from "react-icons/cg";
 export const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState("top-[100%]");
+  const [toggleMenu, setToggleMenu] = useState("top-[-1000%]");
   const [toggleIcon, setToggleIcon] = useState(false);
 const ToggleFunction =()=>{
   setToggleIcon(!toggleIcon);
@@ -45,7 +45,7 @@ const ToggleFunction =()=>{
             }}
             className="md:hidden animate-fade-in transition: all 0.3s ease duration-1000 text-3xl  cursor-pointer"
           >
-            {toggleIcon ? <FaAlignJustify/> : <CgCloseR/>}
+            {toggleIcon ? <CgCloseR/> : <FaAlignJustify/>}
           </div>
         </div>
       </nav>
